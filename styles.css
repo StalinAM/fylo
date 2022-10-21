@@ -24,14 +24,13 @@ body {
   height: 100%;
   background: var(--back-main) url(./images/bg-curvy-mobile.svg) center
     center/contain no-repeat;
-  padding: 1em;
 }
 /* Header */
 header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 0.5em;
+  padding: 1.5em;
   align-items: center;
 }
 header img {
@@ -50,7 +49,7 @@ a {
   text-decoration: none;
 }
 /* Main */
-p {
+p, #email-error {
   font-family: "Open Sans", sans-serif;
   color: var(--light-white);
 }
@@ -63,8 +62,14 @@ main {
   display: flex;
   align-items: center;
   flex-direction: column;
+  padding: 0em 1em;
+  position: relative;
 }
 .features {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
 }
 .img-main {
@@ -85,6 +90,11 @@ main {
   font-weight: bold;
   border-radius: 2em;
 }
+.features .features-primary,
+.features .container-features,
+.features .features-secundary {
+  width: 21.5em;
+}
 .container-features {
   margin: 7em 0em;
 }
@@ -94,8 +104,10 @@ main {
   align-items: center;
   margin: 3em 0em;
 }
-.features-main img {
-  width: 4em;
+.features-main .icon-main {
+  width: 5em;
+  height: 5em;
+  object-fit: contain;
   margin-top: 1em;
   margin-bottom: 2em;
 }
@@ -106,20 +118,21 @@ main {
 .features-main p {
   padding: 0em 0.5em;
 }
-.features div {
+.features .features-secundary {
   text-align: start;
   padding: 0em 0.6em;
 }
-.features div h2 {
+.features .features-secundary h2 {
   font-size: 1.15rem;
 }
-.features div p {
+.features .features-secundary p {
   padding: 0;
   margin: 1.2em 0em 0em;
 }
-.features div a {
+.features .features-secundary a {
   color: var(--cyan-call);
   display: flex;
+  justify-content: center;
   align-items: center;
   gap: 0.5em;
   font-family: "Open Sans", sans-serif;
@@ -133,14 +146,23 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 10em 0em;
+  margin: 10em 0em 20em;
   gap: 1.5em;
 }
 .team-persons {
-  max-width: 17em;
+  width: 17em;
   padding: 1.5em 1em;
   background-color: var(--back-test);
   border-radius: 0.3em;
+}
+.team-persons:nth-child(1) {
+  position: relative;
+}
+.team-persons .quotes {
+  position: absolute;
+  width: 1.5em;
+  top: -1.1em;
+  left: 0.4em;
 }
 .team-persons p {
   font-size: 0.65rem;
@@ -172,13 +194,15 @@ main {
 }
 /* Sign in */
 .sign-in-sec {
+  position: absolute;
+  bottom: -11em;
   display: flex;
   align-items: center;
   flex-direction: column;
-  max-width: 20em;
+  width: 21em;
   background-color: var(--back-intro-email-sign-up);
   gap: 1em;
-  border-radius: 0.3em;
+  border-radius: 0.5em;
   padding: 2.5em 1.5em;
 }
 .sign-in-sec h3 {
@@ -190,9 +214,11 @@ main {
   color: var(--light-white);
 }
 .sign-in-sec .email {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 1.5em;
+  margin-bottom: 1em;
 }
 .sign-in-sec .email input {
   border: none;
@@ -202,10 +228,405 @@ main {
   font-weight: bold;
   border-radius: 2em;
 }
+#email-error{
+  color: var(--light-red-error);
+  left: 1.5em;
+  top: 5em;
+  font-size: 0.8rem;
+  position: absolute;
+  font-weight: bold;
+}
 .sign-in-sec .email input:nth-child(1) {
   background: var(--white);
   margin-top: 1em;
+  color: var(--back-intro-email-sign-up);
 }
 .sign-in-sec .email input:nth-child(1)::placeholder {
   color: hsl(0, 0%, 82%);
+}
+/* Footer */
+footer {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--back-footer);
+  padding: 1em 2em;
+  gap: 2.5em;
+}
+footer .logo-footer {
+  margin-top: 14em;
+  width: 11em;
+}
+footer div,
+footer div ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  font-size: 0.95rem;
+}
+footer div .links-features {
+  margin-top: 4.5em;
+  margin-bottom: 2em;
+}
+footer div .policy {
+  margin-bottom: 4.5em;
+}
+footer div .location,
+footer div .contact p {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  align-items: center;
+}
+footer div .rr-ss {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 1em;
+}
+footer div .rr-ss a img {
+  width: 2.5em;
+  filter: invert(100%) sepia(0%) saturate(7445%) hue-rotate(348deg)
+    brightness(96%) contrast(116%);
+}
+/* HOVER */
+.menu li a:hover {
+  font-weight: bold;
+  border-bottom: 1.5px solid var(--white);
+}
+.features button:hover,
+.sign-in-sec .email #submit:hover {
+  background: var(--cyan-call);
+  cursor: pointer;
+}
+footer div .rr-ss a img:hover {
+  cursor: pointer;
+  filter: invert(93%) sepia(87%) saturate(6771%) hue-rotate(151deg)
+    brightness(93%) contrast(89%);
+}
+footer div .links-features li a:hover,
+footer div .policy li a:hover {
+  font-weight: bold;
+}
+.features .features-secundary a:hover {
+  color: var(--white);
+  border-bottom: 1px solid var(--white);
+}
+.features .features-secundary div a img:hover {
+  filter: grayscale(90%);
+}
+
+@media (min-width: 768px) {
+  header {
+    padding: 3em;
+  }
+  header img {
+    width: 6em;
+  }
+  header nav ul {
+    font-size: 0.9rem;
+  }
+  .features .features-primary,
+  .features .features-secundary {
+    width: 35em;
+  }
+  .sign-in-sec {
+    width: 30em;
+  }
+  .team-persons {
+    width: 25em;
+  }
+  footer div {
+    display: grid;
+    gap: 2em;
+    align-items: start;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+  }
+  footer div .contact {
+    display: flex;
+    flex-direction: column;
+  }
+  footer div .links-features {
+    margin: 0;
+  }
+  footer div .rr-ss {
+    grid-column: 1/3;
+  }
+}
+@media (min-width: 920px) {
+  header {
+    padding: 4em;
+  }
+  header img {
+    width: 11em;
+  }
+  header nav ul {
+    font-size: 1rem;
+    gap: 3em;
+  }
+  .img-main {
+    width: 68%;
+  }
+  .features {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .features .features-primary {
+    width: 40em;
+  }
+  .features .container-features,
+  .features .features-secundary {
+    width: 35em;
+  }
+  .features h1 {
+    font-size: 2.5rem;
+    padding: 0em 1em;
+  }
+  .features p {
+    font-size: 1.2rem;
+    padding: 0em 3em;
+  }
+  .features button {
+    font-size: 1rem;
+  }
+  .features-main h2 {
+    font-size: 1.23rem;
+  }
+  .features-main p {
+    padding: 0em 6em;
+    font-size: 0.9rem;
+  }
+  .features .features-secundary {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4em;
+    width: 40em;
+    padding: 0;
+  }
+  .features .features-secundary div h2 {
+    font-size: 2.25rem;
+  }
+  .features .features-secundary div p {
+    font-size: 0.97rem;
+  }
+  .features .features-secundary div a {
+    font-size: 1rem;
+  }
+  .team {
+    flex-direction: column;
+    justify-content: center;
+    width: 40em;
+    gap: 2em;
+  }
+  .team .team-persons {
+    width: 23em;
+    padding: 2em 1.5em;
+  }
+  .team .team-persons .quotes {
+    top: -1.9em;
+    left: -0.5em;
+    width: 2.8em;
+  }
+  .team .team-persons p {
+    font-size: 0.92rem;
+  }
+  .sign-in-sec {
+    width: 40em;
+    bottom: -7em;
+  }
+  .sign-in-sec h3 {
+    font-size: 2em;
+  }
+  .sign-in-sec p {
+    font-size: 0.9em;
+    padding: 0em 4em;
+  }
+  .sign-in-sec .email {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 60% 40%;
+    gap: 2em;
+    width: 30em;
+    margin-top: 1em;
+  }
+  #email-error{
+    color: var(--light-red-error);
+    left: 1em;
+    bottom: -2em;
+    font-size: 0.85rem;
+    position: absolute;
+    font-weight: bold;
+    top: 4em;
+  }
+  .sign-in-sec .email input {
+    padding: 1em;
+  }
+  .sign-in-sec .email #email {
+    margin-top: 0;
+    padding: 1em 2em;
+  }
+  footer {
+    padding: 1em 4em;
+  }
+  footer .logo-footer {
+    width: 7em;
+  }
+  footer div {
+    display: grid;
+    gap: 2em;
+    align-items: start;
+    grid-template-columns: 30% 20% 10% 10% 15%;
+  }
+  footer div .contact {
+    display: flex;
+    flex-direction: column;
+  }
+  footer div .links-features,
+  footer div .policy {
+    font-size: 1rem;
+  }
+  footer div .links-features {
+    margin: 0;
+  }
+  footer div .rr-ss {
+    grid-column: 5/6;
+    gap: 1em;
+  }
+}
+@media (min-width: 1280px) {
+  header {
+    padding: 6em;
+  }
+  header img {
+    width: 11em;
+  }
+  header nav ul {
+    font-size: 1rem;
+    gap: 3em;
+  }
+  .img-main {
+    width: 68%;
+  }
+  .features {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .features .features-primary,
+  .container-features {
+    width: 67em;
+  }
+  .features h1 {
+    font-size: 2.5rem;
+    padding: 0em 3em;
+  }
+  .features p {
+    font-size: 1.2rem;
+    padding: 0em 11.5em;
+  }
+  .features button {
+    font-size: 1rem;
+  }
+  .features .container-features {
+    width: 67em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+  .features-main h2 {
+    font-size: 1.23rem;
+  }
+  .features-main p {
+    padding: 0em 6em;
+    font-size: 0.9rem;
+  }
+  .features .features-secundary {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4em;
+    width: 77.5em;
+    padding: 0;
+  }
+  .features .features-secundary div h2 {
+    font-size: 2.25rem;
+  }
+  .features .features-secundary div p {
+    font-size: 0.97rem;
+  }
+  .features .features-secundary div a {
+    font-size: 1rem;
+  }
+  .team {
+    flex-direction: row;
+    justify-content: center;
+    width: 77.5em;
+    gap: 2em;
+  }
+  .team .team-persons {
+    width: 23em;
+    padding: 2em 1.5em;
+  }
+  .team .team-persons .quotes {
+    top: -1.9em;
+    left: -0.5em;
+    width: 2.8em;
+  }
+  .team .team-persons p {
+    font-size: 0.92rem;
+  }
+  .sign-in-sec {
+    width: 55em;
+    bottom: -7em;
+  }
+  .sign-in-sec h3 {
+    font-size: 2em;
+  }
+  .sign-in-sec p {
+    font-size: 0.9em;
+    padding: 0em 7em;
+  }
+  .sign-in-sec .email {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 70% 30%;
+    gap: 2em;
+    width: 42em;
+    margin-top: 1em;
+  }
+  .sign-in-sec .email input {
+    padding: 1em;
+  }
+  .sign-in-sec .email #email {
+    margin-top: 0;
+    padding: 1em 2em;
+  }
+  footer {
+    padding: 1em 8em;
+  }
+  footer .logo-footer {
+    width: 7em;
+  }
+  footer div {
+    display: grid;
+    gap: 2em;
+    align-items: start;
+    grid-template-columns: 35% 20% 10% 10% 15%;
+  }
+  footer div .contact {
+    display: flex;
+    flex-direction: column;
+  }
+  footer div .links-features,
+  footer div .policy {
+    font-size: 1rem;
+  }
+  footer div .links-features {
+    margin: 0;
+  }
+  footer div .rr-ss {
+    gap: 1em;
+  }
 }
